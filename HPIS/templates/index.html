@@ -104,7 +104,7 @@
                     <a href="#invite" class="btn btn-secondary btn-lg scroll shadow">Search</a>
                   </div>
                   <div class="col-md-6 text-left col-xs-6 wow fadeInUp" data-wow-delay="1.4s">
-                      <a href="#be-the-first" class="btn btn-primary btn-lg scroll shadow">Statistics</a>
+                      <a href="#stats" class="btn btn-primary btn-lg scroll shadow">Statistics</a>
                     </div>
                 </div><!--End Button Row-->  
               </div>
@@ -162,7 +162,7 @@
                   {% csrf_token %} -->
                 <div class="form-row">
                   <div class="col">
-                    <label for="location">Enter Location</label>
+                    <label for="location"  style="text-shadow:2px 2px 3px rgb(0,0,0)">Enter Location</label>
                     <!-- <input type="text" class="form-control" placeholder="Enter location" value=""> -->
                     <select class="form-control" id="location" name="location" >
                     <option>Choose. .</option>
@@ -1504,7 +1504,7 @@
               <div class="carousel-caption">
                 <div class="form-row">
                   <div class="col">
-                    <label for="area_sqft">Enter Area in SquareFeet</label>
+                    <label for="area_sqft" style="text-shadow:2px 2px 3px rgb(0,0,0)">Enter Area in SquareFeets</label>
                     <input type="text" class="form-control" placeholder="Enter SquareFeet" id="area_sqft" name="area_sqft">
                   </div>
               </div>
@@ -1541,7 +1541,7 @@
               <div class="carousel-caption">
                 <div class="form-row">
                   <div class="col">
-                    <label for="balconies">Enter Balcony</label>
+                    <label for="balconies">Enter no. of Balconies</label>
                     <input type="text" id="balconies" class="form-control" placeholder="Enter Balcony" name="balconies">
                     
                   </div>
@@ -1559,7 +1559,7 @@
               <div class="form-row">
                 <div class="col">
                   <!-- <input type="text" class="form-control" placeholder="Enter Bedrooms" value=""> -->
-                  <label for="bedrooms">Enter Bedroom</label>
+                  <label for="bedrooms">Enter no. of Bedrooms</label>
                   <select class="form-control" id="bedrooms" name="bedrooms">
                     <option>choose..</option>
                    <option>1</option>
@@ -1589,7 +1589,7 @@
             <div class="carousel-caption">
               <div class="form-row">
                 <div class="col">
-                  <label for="bathrooms">Enter Bathroom</label>
+                  <label for="bathrooms">Enter no. of Bathrooms</label>
                   <input type="text" id="bathrooms" class="form-control" placeholder="Enter Bathroom" name="bathrooms">
                   <br>
                   <div class="col-xs-12 text-center wow fadeInUp">
@@ -1635,14 +1635,126 @@
                     <!--<i class="fa fa-envelope-o margin-40"></i>-->
                     <h2 style="text-shadow:2px 2px black">The Predicted Price is:</h2>
                     <br />
-                    <p style="text-shadow:2px 2px black;color:white">output : <span id="price"></span></p>
+                    <p style="text-shadow:2px 2px black;color:white">Output : Rs. <span id="price"></span>K</p>
                     
                     </div>
                   </div><!--End Form row-->
                 </div>
               </div>
             </section>
-              
+            <section id="stats" class="pad-sm light-gray-bg" style="padding-top: 30px">
+             
+                <div class="container" style="margin:auto; padding:30px">
+                    <p class="h2" style="text-align:center;font-size:40px">Statistics</p>
+                  </div>
+                     <!--Carousel Wrapper-->
+                 <div class="container border border-light">
+                   <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel" data-interval="false" style="display:inline" >
+                 
+                     <!--Controls-->
+                     <div class="controls-top" style="text-align:center">
+                       <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fa fa-chevron-left" style="font-size:30px;color:blue"></i></a>
+                       <a class="btn-floating" href="#multi-item-example" data-slide="next"><i class="fa fa-chevron-right" style="font-size:30px;color:blue"></i></a>
+                     </div>
+                     <!--/.Controls-->
+                 
+                     <!--Indicators-->
+                     <ol class="carousel-indicators">
+                       <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+                       <li data-target="#multi-item-example" data-slide-to="1"></li>
+                       <!-- <li data-target="#multi-item-example" data-slide-to="2"></li> -->
+                     </ol>
+                     <!--/.Indicators-->
+                 
+                     <!--Slides-->
+                       <div class="carousel-inner" role="listbox">
+                 
+                         <!--First slide-->
+                         <div class="carousel-item active">
+                 
+                       <div class="card-group">
+                 
+                           <div class="card">
+                             <img class="card-img-top" src="{% static 'imgs/pie-chart-area-type.png' %}"
+                               alt="Card image cap">
+                             <div class="card-body">
+                               <h4 class="card-title">Area Type Distribution</h4>
+                               
+                             </div>
+                           </div>
+                 
+                           <div class="card">
+                              <img class="card-img-top" src="{% static 'imgs/scatter-area_type.png' %}"
+                                alt="Card image cap">
+                              <div class="card-body">
+                                <h4 class="card-title">Scattered Plot of Price vs Area Type</h4>
+                                
+                              </div>
+                            </div>
+                           
+                 
+                       </div>
+                       <!--/.First slide-->
+                       </div>
+                       
+                 
+                         <!--Second slide-->
+                         <div class="carousel-item">
+                         <div class="card-group">
+                 
+                           <div class="card">
+                             <img class="card-img-top" src="{% static 'imgs/scatter-bedrooms.png' %}"
+                               alt="Card image cap">
+                             <div class="card-body">
+                               <h4 class="card-title">Scattered plot Price vs No. of Bedrooms</h4>
+                                
+                             </div>
+                           </div>
+                 
+                           <div class="card">
+                             <img class="card-img-top" src="{% static 'imgs/scatter-sqft.png' %}"
+                               alt="Card image cap">
+                             <div class="card-body">
+                               <h4 class="card-title">Scattered plot Price vs Square feet area</h4>
+  
+                             </div>
+                           </div>
+                 
+                         </div>
+                 
+                         </div>
+                         <!--/.Second slide-->
+                 
+                         <!--Third slide-->
+                         <div class="carousel-item">
+                 
+                          <div class="card-group">
+                              <div class="card">
+                                  <img class="card-img-top" src="{% static 'imgs/scatter-balcony.png' %}"
+                                    alt="Card image cap">
+                                  <div class="card-body">
+                                    <h4 class="card-title">Scattered Plot of Price vs No. of Balconies</h4>
+                                    
+                                  </div>
+                                </div>
+                      
+                                <div class="card">
+                                  <img class="card-img-top" src="{% static 'imgs/scatter-bath.png' %}"
+                                    alt="Card image cap">
+                                  <div class="card-body">
+                                    <h4 class="card-title">Scattered plot Price vs No. of Bathrooms</h4>
+                                     
+                                  </div>
+                                </div>
+                          </div>
+                 
+                         </div>
+                 
+                       </div>
+                       <!--/.Slides-->
+                     </div>
+                 </div>
+                </section>
       
           <!-- OUTPUT 
     <p>the location is {{form.location}}</p> 

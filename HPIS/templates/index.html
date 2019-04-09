@@ -91,8 +91,7 @@
             <br />
             <p class="lead wow fadeIn" style="font-size:2vw;background: rgba(0,0,0,0.3);width:60%;margin:auto" data-wow-delay="0.5s">Ideal Houses according to your requirements and preferences and <i>BUDGET</i><br>
              </p>
-            <br /> 
-           <a href="property.html">here</a>   
+            <br />   
             <div class="row">
               <!-- <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1"> -->
               <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-2">
@@ -101,7 +100,7 @@
                     <!-- <a href="#be-the-first" class="btn btn-secondary btn-lg scroll shadow">Search</a> -->
                   <!-- </div> -->
                   <div class="col-md-6 text-right col-xs-6 wow fadeInUp" data-wow-delay="1.4s">
-                    <a href="#invite" class="btn btn-secondary btn-lg scroll shadow">Search</a>
+                    <a href="#search" class="btn btn-secondary btn-lg scroll shadow">Search</a>
                   </div>
                   <div class="col-md-6 text-left col-xs-6 wow fadeInUp" data-wow-delay="1.4s">
                       <a href="#stats" class="btn btn-primary btn-lg scroll shadow">Statistics</a>
@@ -120,7 +119,7 @@
       </div>
     
     
-        <section id="invite" class="pad-sm light-gray-bg" style="padding-top: 30px">
+        <section id="search" class="pad-sm light-gray-bg" style="padding-top: 30px">
             <div class="container">
               <div class="row">
                 <div class="col-sm-12 text-center">
@@ -1503,7 +1502,7 @@
                 <div class="form-row">
                   <div class="col">
                     <label for="area_sqft" style="text-shadow:2px 2px 3px rgb(0,0,0)">Enter Area in SquareFeets</label>
-                    <input type="text" class="form-control" placeholder="Enter SquareFeet" id="area_sqft" name="area_sqft" required>
+                    <input type="text" class="form-control" placeholder="Enter SquareFeet" id="area_sqft" name="area_sqft" >
                   </div>
               </div>
               </div>
@@ -1520,7 +1519,7 @@
                   <div class="col">
                     <label for="hallkitchen">Enter no. of Hall & Kitchen</label>
                     <!-- <input type="text" class="form-control" placeholder="Enter Hall&Kitchen (either 1 or 0)" value=""> -->
-                    <select class="form-control" id="hallkitchen" name="hallkitchen"required>
+                    <select class="form-control" id="hallkitchen" name="hallkitchen" required>
                     <option selected disabled>choose. .</option>
                     <option value="1">Available</option>
                     <option value="0">Not Available</option>
@@ -1540,7 +1539,7 @@
                 <div class="form-row">
                   <div class="col">
                     <label for="balconies">Enter no. of Balconies</label>
-                    <input type="text" id="balconies" class="form-control" placeholder="Enter Balcony" name="balconies" required>
+                    <input type="text" id="balconies" class="form-control" placeholder="Enter Balcony" name="balconies" >
                     
                   </div>
               </div>
@@ -1558,7 +1557,7 @@
                 <div class="col">
                   <!-- <input type="text" class="form-control" placeholder="Enter Bedrooms" value=""> -->
                   <label for="bedrooms">Enter no. of Bedrooms</label>
-                  <select class="form-control" id="bedrooms" name="bedrooms" required>
+                  <select class="form-control" id="bedrooms" name="bedrooms" >
                    <option>1</option>
                    <option>2</option>
                    <option>3</option>
@@ -1587,7 +1586,7 @@
               <div class="form-row">
                 <div class="col">
                   <label for="bathrooms">Enter no. of Bathrooms</label>
-                  <input type="text" id="bathrooms" class="form-control" placeholder="Enter Bathroom" name="bathrooms" required>
+                  <input type="text" id="bathrooms" class="form-control" placeholder="Enter Bathroom" name="bathrooms">
                   <br>
                   <div class="col-xs-12 text-center wow fadeInUp">
                       <input class="btn btn-primary btn-lg " id="calc_price" style="height:50px; width: 200px ;padding:2px 30px" type="submit" value="Submit">
@@ -1603,11 +1602,11 @@
       
         <!--/.Slides-->
         <!--Controls-->
-        <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <a class="carousel-control-prev" href="#carousel-example-2" role="button" style="background-color:rgba(0,0,0,0.3)" data-slide="prev">
+          <span class="carousel-control-prev-icon"  aria-hidden="true"></span>
           <span class="sr-only">Previous</span>
         </a>
-        <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+        <a class="carousel-control-next" href="#carousel-example-2" role="button" style="background-color:rgba(0,0,0,0.3)" data-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </a>
@@ -1823,7 +1822,9 @@
       sel.val(selected);
       $('#my-form').on('submit', function(event){
           event.preventDefault();
-
+          if($("#area_sqft").val()==""||$("#balconies").val()==""||$("#bathrooms").val()==""||$("#area_type").val()==null||$("#hallkitchen    ").val()==null){
+            alert("Fill the form completely...!!");
+      }else{
         $.ajax({
           url:"/parameters/",
           type:'POST',
@@ -1846,7 +1847,8 @@
             console.log(error);
           }
         });
-      })
+      }
+      });
      });
     </script>
     </html> 

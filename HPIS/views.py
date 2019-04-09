@@ -21,6 +21,12 @@ df3=pd.read_csv('hp_columns.csv')
 def home(request): # the function will take request as input
     return render(request, 'index.html')
 
+def property(request):
+    return render(request,'property.html')
+    
+def dashboard(request):
+     return render(request,'dashboard.html')
+
 def parameters(request):
     print("request came to views")
     #submitbutton = request.POST.get("submit")

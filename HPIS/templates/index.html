@@ -92,7 +92,7 @@
             <p class="lead wow fadeIn" style="font-size:2vw;background: rgba(0,0,0,0.3);width:60%;margin:auto" data-wow-delay="0.5s">Ideal Houses according to your requirements and preferences and <i>BUDGET</i><br>
              </p>
             <br /> 
-              
+           <a href="property.html">here</a>   
             <div class="row">
               <!-- <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1"> -->
               <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-2">
@@ -165,7 +165,7 @@
                     <label for="location"  style="text-shadow:2px 2px 3px rgb(0,0,0)">Enter Location</label>
                     <!-- <input type="text" class="form-control" placeholder="Enter location" value=""> -->
                     <select class="form-control" id="location" name="location" >
-                    <option>Choose. .</option>
+                    <option selected disabled>Choose. .</option>
     
                     <option>Electronic City Phase II</option>
                     <option>Chikka Tirupathi</option>
@@ -1482,7 +1482,7 @@
                     <label for="area_type">Enter Area Type</label>
                     <!-- <input type="text" class="form-control" placeholder="Enter Area Type" value=""> -->
                     <select class="form-control" id="area_type" name="area_type">
-                    <option>Choose. .</option>
+                    <option selected disabled>Choose. .</option>
                     <option>Built-up Area</option>
                     <option>Carpet Area</option>
                     <option>Plot Area</option>
@@ -1522,10 +1522,10 @@
                   <div class="col">
                     <label for="hallkitchen">Enter no. of Hall & Kitchen</label>
                     <!-- <input type="text" class="form-control" placeholder="Enter Hall&Kitchen (either 1 or 0)" value=""> -->
-                    <select class="form-control" id="hallkitchen" name="hallkitchen">
-                    <option>choose. .</option>
-                    <option>0</option>
-                    <option>1</option>
+                    <select class="form-control" id="hallkitchen" name="hallkitchen"required>
+                    <option selected disabled>choose. .</option>
+                    <option value="1">Available</option>
+                    <option value="0">Not Available</option>
                     </select>
                   </div>
               </div>

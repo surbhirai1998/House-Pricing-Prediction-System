@@ -165,8 +165,6 @@
                     <label for="location"  style="text-shadow:2px 2px 3px rgb(0,0,0)">Enter Location</label>
                     <!-- <input type="text" class="form-control" placeholder="Enter location" value=""> -->
                     <select class="form-control" id="location" name="location" >
-                    <option selected disabled>Choose. .</option>
-    
                     <option>Electronic City Phase II</option>
                     <option>Chikka Tirupathi</option>
                     <option>Uttarahalli</option>
@@ -1481,7 +1479,7 @@
                   <div class="col">
                     <label for="area_type">Enter Area Type</label>
                     <!-- <input type="text" class="form-control" placeholder="Enter Area Type" value=""> -->
-                    <select class="form-control" id="area_type" name="area_type">
+                    <select class="form-control" id="area_type" name="area_type" required>
                     <option selected disabled>Choose. .</option>
                     <option>Built-up Area</option>
                     <option>Carpet Area</option>
@@ -1505,7 +1503,7 @@
                 <div class="form-row">
                   <div class="col">
                     <label for="area_sqft" style="text-shadow:2px 2px 3px rgb(0,0,0)">Enter Area in SquareFeets</label>
-                    <input type="text" class="form-control" placeholder="Enter SquareFeet" id="area_sqft" name="area_sqft">
+                    <input type="text" class="form-control" placeholder="Enter SquareFeet" id="area_sqft" name="area_sqft" required>
                   </div>
               </div>
               </div>
@@ -1542,7 +1540,7 @@
                 <div class="form-row">
                   <div class="col">
                     <label for="balconies">Enter no. of Balconies</label>
-                    <input type="text" id="balconies" class="form-control" placeholder="Enter Balcony" name="balconies">
+                    <input type="text" id="balconies" class="form-control" placeholder="Enter Balcony" name="balconies" required>
                     
                   </div>
               </div>
@@ -1560,8 +1558,7 @@
                 <div class="col">
                   <!-- <input type="text" class="form-control" placeholder="Enter Bedrooms" value=""> -->
                   <label for="bedrooms">Enter no. of Bedrooms</label>
-                  <select class="form-control" id="bedrooms" name="bedrooms">
-                    <option>choose..</option>
+                  <select class="form-control" id="bedrooms" name="bedrooms" required>
                    <option>1</option>
                    <option>2</option>
                    <option>3</option>
@@ -1590,7 +1587,7 @@
               <div class="form-row">
                 <div class="col">
                   <label for="bathrooms">Enter no. of Bathrooms</label>
-                  <input type="text" id="bathrooms" class="form-control" placeholder="Enter Bathroom" name="bathrooms">
+                  <input type="text" id="bathrooms" class="form-control" placeholder="Enter Bathroom" name="bathrooms" required>
                   <br>
                   <div class="col-xs-12 text-center wow fadeInUp">
                       <input class="btn btn-primary btn-lg " id="calc_price" style="height:50px; width: 200px ;padding:2px 30px" type="submit" value="Submit">
@@ -1818,6 +1815,12 @@
     </script>
     <script>
      $(function(){
+      var sel = $('#location');
+      var selected = sel.val(); // cache selected value, before reordering
+      var opts_list = sel.find('option');
+      opts_list.sort(function(a, b) { return $(a).text() > $(b).text() ? 1 : -1; });
+      sel.html('').append(opts_list);
+      sel.val(selected);
       $('#my-form').on('submit', function(event){
           event.preventDefault();
 
